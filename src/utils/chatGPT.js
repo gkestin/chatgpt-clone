@@ -28,9 +28,7 @@ export const chatGPT = async (prompt, chatbot_style, key) => {
       messages: messages,
     });
   
-    console.log(response); // add this line to log the response
-
-    return response.data.choices[0].message.content;
+    return response.data.choices[0].message;
   } catch (error) {
     console.error(error);
     throw error;
