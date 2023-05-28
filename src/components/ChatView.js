@@ -8,6 +8,8 @@ import { davinci } from '../utils/davinci';
 import { dalle } from '../utils/dalle';
 import Modal from './Modal';
 import Setting from './Setting';
+import { chatGPT } from '../utils/chatGPT';  // This line is updated from Gred to Implement chatGPT not davinci
+const chatbotStyle = "a friendly assistant"; // Also from Greg: Define chatbot's style here.
 
 /**
  * A chat view component that displays a list of messages and a form for sending new messages.
@@ -73,11 +75,12 @@ const ChatView = () => {
     setThinking(true);
     setFormValue('');
     updateMessage(newMsg, false, aiModel);
-
+    
     console.log(selected);
     try {
       if (aiModel === options[0]) {
-        const response = await davinci(cleanPrompt, key);
+        const response = await chatGPT(cleanPrompt, chatbotStyle, key);  // Greg updated this line
+        //const response = await davinci(cleanPrompt, key);
         const data = response.data.choices[0].message.content;
         data && updateMessage(data, true, aiModel);
       } else {
