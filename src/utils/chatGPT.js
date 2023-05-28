@@ -23,10 +23,9 @@ export const chatGPT = async (prompt, chatbot_style, key) => {
   ];
 
   const response = await openai.createChatCompletion({
-    model: 'gpt-4.0',
-    //model: 'gpt-3.5-turbo',
+    model: 'gpt-4',
     messages: messages,
   });
 
-  return response;
+  return response.data.choices[0].message.content;
 };
