@@ -4,7 +4,7 @@ import { ChatContext } from '../context/chatContext';
 import Thinking from './Thinking';
 import { MdSend } from 'react-icons/md';
 import Filter from 'bad-words';
-import { davinci } from '../utils/davinci';
+//import { davinci } from '../utils/davinci';
 import { dalle } from '../utils/dalle';
 import Modal from './Modal';
 import Setting from './Setting';
